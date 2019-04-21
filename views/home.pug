@@ -1,0 +1,96 @@
+doctype html
+html(lang="en")
+	head
+		meta(name="description", content="Mixing Tracks v1.0")
+		block title
+			title Mixing Tracks
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='icon', type='image/png', sizes='16x16', href='favicon.png')
+		link(rel='stylesheet', type='text/css', href='vendors/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', type='text/css', href='stylesheets/background.css')
+		link(rel='stylesheet', type='text/css', href='core/css/style.css')
+		link(rel='stylesheet', type='text/css', href='core/css/components.css')
+		style.
+			.center-div {
+				color: white;
+				left: 50%;
+				position: absolute;
+				top: 45%;
+				transform: translateX(-50%) translateY(-50%);
+			}
+
+			.bottom-div {
+				background-color: black;
+				bottom: 0;
+				height: 100px;
+				left: 0;
+				opacity: 0.75;
+				position: absolute;
+				width: 100%;
+			}
+
+			.bottom-text {
+				bottom: 15px;
+				color: white;
+				position: absolute;
+				left: 0;
+				width: 100%;
+			}
+			
+			.bottom-text > a {
+				color: white;
+				margin-left: 5px;
+				margin-right: 5px;
+				text-decoration: none;
+			}
+	body
+		ul.cb-slideshow
+			li
+				span Image 01
+			li
+				span Image 02
+			li
+				span Image 03
+			li
+				span Image 04
+			li
+				span Image 05
+			li
+				span Image 06
+			li
+				span Image 07
+			li
+				span Image 08
+			li
+				span Image 09
+			li
+				span Image 10
+
+		.center-div.text-center
+			h1
+				|Mix Music Online
+			unless auth
+				a.btn.btn-primary.mr-3(href='/auth/login') Log In
+				a.btn.btn-info(href='/auth/signup') Sign Up
+
+		.bottom-div
+			.bottom-text.text-center
+				p.mb-0
+					|Copyright © Mixing Tracks 2019
+				a(href='javascript:void(0)') Terms
+				a(href='javascript:void(0)') Privacy
+				a(href='javascript:void(0)') FAQ
+				a(href='javascript:void(0)') About
+
+		script(src='vendors/jquery/dist/jquery.min.js')
+		script(src='vendors/bootstrap/dist/js/bootstrap.bundle.min.js')
+		script.
+			$(document).ready(function () {
+
+			});
+
+			function A() {
+
+			}

@@ -1,0 +1,74 @@
+doctype html
+html(lang="en")
+	head
+		meta(name="description", content="Mixing Tracks v1.0")
+		block title
+			title Mixing Tracks
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='icon', type='image/png', sizes='16x16', href='favicon.png')
+		link(rel='stylesheet', type='text/css', href='../vendors/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.7.2/css/all.css', integrity='sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr', crossorigin='anonymous')
+
+		link(rel='stylesheet', type='text/css', href='../vendors/bootstrap-social/bootstrap-social.css')
+
+		link(rel='stylesheet', type='text/css', href='../core/css/style.css')
+		link(rel='stylesheet', type='text/css', href='../core/css/components.css')
+	body
+		#app
+			section.section
+				.container.mt-5
+					.row
+						.col-12.col-sm-8.offset-sm-2.col-md-6.offset-md-3.col-lg-6.offset-lg-3.col-xl-4.offset-xl-4
+							.login-brand
+								img.shadow-light.rounded-circle(src='../favicon.png', alt='logo', width='100')
+							.card.card-primary
+								.card-header
+									h4 Login
+								.card-body
+									h5
+									unless message
+										| #{message}
+									form.needs-validation(method='POST', action='', novalidate='')
+										.form-group
+											label(for='email') Email
+											input#email.form-control(type='email', name='email', tabindex='1', required='', autofocus='')
+											.invalid-feedback
+												| Please fill in your email
+										.form-group
+											.d-block
+												label.control-label(for='password') Password
+												.float-right
+													a.text-small(href='forgot')
+														| Forgot Password?
+											input#password.form-control(type='password', name='password', tabindex='2', required='')
+											.invalid-feedback
+												| please fill in your password
+										.form-group
+											.custom-control.custom-checkbox
+												input#remember-me.custom-control-input(type='checkbox', name='remember', tabindex='3')
+												label.custom-control-label(for='remember-me') Remember Me
+										.form-group
+											button.btn.btn-primary.btn-lg.btn-block(type='submit', tabindex='4')
+												| Login
+									.text-center.mt-4.mb-3
+										.text-job.text-muted Login With Social
+									.row.sm-gutters
+										.col-6
+											a.btn.btn-block.btn-social.btn-facebook
+												span.fab.fa-facebook
+												|  Facebook
+										.col-6
+											a.btn.btn-block.btn-social.btn-google
+												span.fab.fa-google
+												|  Google
+							.mt-5.text-muted.text-center
+								| Don't have an account?
+								a(href='signup')  Create One
+							.simple-footer
+								| Copyright © Mixing Tracks 2019
+		script(src='../vendors/jquery/dist/jquery.min.js')
+		script(src='../vendors/bootstrap/dist/js/bootstrap.bundle.min.js')
+		script(src='../core/js/stisla.js')
+		script(src='../core/js/scripts.js')

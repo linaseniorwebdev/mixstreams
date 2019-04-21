@@ -1,0 +1,98 @@
+doctype html
+html(lang="en")
+	head
+		meta(name="description", content="Mixing Tracks v1.0")
+		block title
+			title Mixing Tracks
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='icon', type='image/png', sizes='16x16', href='../favicon.png')
+		link(rel='stylesheet', type='text/css', href='../vendors/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.7.2/css/all.css', integrity='sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr', crossorigin='anonymous')
+
+		link(rel='stylesheet', type='text/css', href='../vendors/bootstrap-social/bootstrap-social.css')
+		link(rel='stylesheet', type='text/css', href='../vendors/sweetalert2/dist/sweetalert2.min.css')
+
+		link(rel='stylesheet', type='text/css', href='../core/css/style.css')
+		link(rel='stylesheet', type='text/css', href='../core/css/components.css')
+	body
+		#app
+			section.section
+				.container.mt-5
+					.row
+						.col-12.col-sm-10.offset-sm-1.col-md-8.offset-md-2.col-lg-8.offset-lg-2.col-xl-8.offset-xl-2
+							.login-brand
+								img.shadow-light.rounded-circle(src='../favicon.png', alt='logo', width='100')
+							.card.card-primary
+								.card-header
+									h4 Register
+								.card-body
+									form.needs-validation(method='post', action='/auth/signup', novalidate='')
+										.row
+											.form-group.col-6
+												label(for='first') First Name
+												input#first.form-control(type='text', name='first', required='', autofocus='')
+												.invalid-feedback
+													| Please fill in your first name
+											.form-group.col-6
+												label(for='last') Last Name
+												input#last.form-control(type='text', name='last', required='')
+												.invalid-feedback
+													| Please fill in your last name
+										.form-group
+											label(for='email') Email
+											input#email.form-control(type='email', name='email', required='')
+											.invalid-feedback
+												| Please fill in your email
+										.row
+											.form-group.col-6
+												label.d-block(for='password') Password
+												input#password.form-control.pwstrength(type='password', data-indicator='pwindicator', name='password', required='')
+												.invalid-feedback
+													| Please fill in your password
+												#pwindicator.pwindicator
+													.bar
+													.label
+											.form-group.col-6
+												label.d-block(for='password2') Password Confirmation
+												input#password2.form-control(type='password', name='password-confirm', required='')
+												.invalid-feedback
+													| Password does not match
+										.form-group
+											.custom-control.custom-checkbox
+												input#agree.custom-control-input(type='checkbox', name='agree', required='')
+												label.custom-control-label(for='agree') I agree with the terms and conditions
+												.invalid-feedback
+													| You have to agree with our terms and conditions
+										.form-group
+											button.btn.btn-primary.btn-lg.btn-block(type='submit')
+												| Register
+							.simple-footer
+								| Copyright © Mixing Tracks 2019
+		script(src='../vendors/jquery/dist/jquery.min.js')
+		script(src='../vendors/bootstrap/dist/js/bootstrap.bundle.min.js')
+		script(src='../vendors/pwstrength-bootstrap/dist/pwstrength-bootstrap.min.js')
+		script(src='../vendors/sweetalert2/dist/sweetalert2.min.js')
+		script(src='../core/js/stisla.js')
+		script.
+			$(document).ready(function () {
+				$(".pwstrength").pwstrength();
+			});
+
+			$("button.btn-primary").click(function() {
+				if ($("#password").val() != $("#password2").val()) {
+					swal.fire("Warning", "Password doesn't match", "warning");
+					event.preventDefault();
+					event.stopPropagation();
+				} else {
+					$(".needs-validation").submit(function () {
+						let form = $(this);
+						if (form[0].checkValidity() === false) {
+							event.preventDefault();
+							event.stopPropagation();
+						}
+						form.addClass('was-validated');
+					});
+				}
+			});

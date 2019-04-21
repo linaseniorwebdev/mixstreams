@@ -1,6 +1,15 @@
-extends layout
-
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+doctype html
+html(lang="en")
+	head
+		meta(name="description", content="Mixing Tracks v1.0")
+		block title
+			title Mixing Tracks
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='icon', type='image/png', sizes='16x16', href='favicon.png')
+	body
+		block content
+			h1= message
+			h2= error.status
+			pre #{error.stack}
