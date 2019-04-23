@@ -1,8 +1,14 @@
 const express   = require('express');
 const router    = express.Router();
 
+/**
+ * Profile Page
+ */
 router.get('/', function(req, res, next) {
-	res.send('respond with a resource');
+	if (req.session.loggedin)
+		res.render('user/profile');
+	else
+		res.redirect('/auth/login');
 });
 
 module.exports = router;

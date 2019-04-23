@@ -27,13 +27,13 @@ html(lang="en")
 								.card-header
 									h4 Login
 								.card-body
-									h5
-									unless message
-										| #{message}
+									p.text-center
+										if message
+											| #{message}
 									form.needs-validation(method='POST', action='', novalidate='')
 										.form-group
 											label(for='email') Email
-											input#email.form-control(type='email', name='email', tabindex='1', required='', autofocus='')
+											input#email.form-control(type='email', name='email', tabindex='1', required='', autofocus='', value= email)
 											.invalid-feedback
 												| Please fill in your email
 										.form-group
@@ -42,12 +42,15 @@ html(lang="en")
 												.float-right
 													a.text-small(href='forgot')
 														| Forgot Password?
-											input#password.form-control(type='password', name='password', tabindex='2', required='')
+											input#password.form-control(type='password', name='password', tabindex='2', required='', value= password)
 											.invalid-feedback
 												| please fill in your password
 										.form-group
 											.custom-control.custom-checkbox
-												input#remember-me.custom-control-input(type='checkbox', name='remember', tabindex='3')
+												if remember
+													input#remember-me.custom-control-input(type='checkbox', name='remember', tabindex='3', checked)
+												else
+													input#remember-me.custom-control-input(type='checkbox', name='remember', tabindex='3')
 												label.custom-control-label(for='remember-me') Remember Me
 										.form-group
 											button.btn.btn-primary.btn-lg.btn-block(type='submit', tabindex='4')

@@ -9,6 +9,7 @@ html(lang="en")
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		link(rel='icon', type='image/png', sizes='16x16', href='favicon.png')
 		link(rel='stylesheet', type='text/css', href='vendors/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', type='text/css', href='vendors/@fortawesome/fontawesome-free/css/all.min.css')
 		link(rel='stylesheet', type='text/css', href='stylesheets/background.css')
 		link(rel='stylesheet', type='text/css', href='core/css/style.css')
 		link(rel='stylesheet', type='text/css', href='core/css/components.css')
@@ -31,6 +32,17 @@ html(lang="en")
 				width: 100%;
 			}
 
+			.top-div {
+				background-color: rgba(0, 0, 0, 0.75);
+				top: 0;
+				height: 60px;
+				left: 0;
+				position: absolute;
+				width: 100%;
+				padding: 7px 15px;
+				font-size: 1rem;
+			}
+
 			.bottom-text {
 				bottom: 15px;
 				color: white;
@@ -44,6 +56,10 @@ html(lang="en")
 				margin-left: 5px;
 				margin-right: 5px;
 				text-decoration: none;
+			}
+
+			.nav-link {
+				color: white;
 			}
 	body
 		ul.cb-slideshow
@@ -74,6 +90,33 @@ html(lang="en")
 			unless auth
 				a.btn.btn-primary.mr-3(href='/auth/login') Log In
 				a.btn.btn-info(href='/auth/signup') Sign Up
+		if auth
+			.top-div.navbar-expand-lg
+				ul.nav.navbar-nav.float-right
+					li
+						a.nav-link.nav-link-lg(href='#')
+							| Song Library
+					li.dropdown
+						a.nav-link.dropdown-toggle.nav-link-lg(href='#', data-toggle='dropdown', aria-expanded='false')
+							img.rounded-circle.mr-1(alt='image', src='core/img/avatar/avatar-1.png', style='width: 32px;')
+						.dropdown-menu.dropdown-menu-right
+							.dropdown-title= name
+							a.dropdown-item.has-icon(href='/user')
+								i.far.fa-user
+								| Profile
+							a.dropdown-item.has-icon(href='/user/library')
+								i.fas.fa-bolt
+								| My Library
+							a.dropdown-item.has-icon(href='/mixer')
+								i.fas.fa-cog
+								| To Mixer
+							a.dropdown-item.has-icon(href='/admin')
+								i.fas.fa-cog
+								| To Admin Panel
+								.dropdown-divider
+							a.dropdown-item.has-icon.text-danger(href='/auth/logout')
+								i.fas.fa-sign-out-alt
+								|  Logout
 
 		.bottom-div
 			.bottom-text.text-center

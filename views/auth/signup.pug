@@ -28,6 +28,9 @@ html(lang="en")
 								.card-header
 									h4 Register
 								.card-body
+									p.text-center
+										if message
+											| #{message}
 									form.needs-validation(method='post', action='/auth/signup', novalidate='')
 										.row
 											.form-group.col-6
