@@ -9,6 +9,7 @@ const session       = require('express-session');
 const authRouter    = require('./routes/auth');
 const adminRouter   = require('./routes/admin');
 const indexRouter   = require('./routes/index');
+const libraryRouter = require('./routes/library');
 const mixerRouter   = require('./routes/mixer');
 const userRouter    = require('./routes/user');
 
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/admin', adminRouter);
+app.use('/library', libraryRouter);
 app.use('/mixer', mixerRouter);
 app.use('/user', userRouter);
 

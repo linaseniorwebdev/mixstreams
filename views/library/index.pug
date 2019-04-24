@@ -1,0 +1,88 @@
+doctype html
+html(lang='en')
+	head
+		meta(name="description", content="Mixing Tracks v1.0")
+		block title
+			title My Library - Mixing Tracks
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='icon', type='image/png', sizes='16x16', href='favicon.png')
+		link(rel='stylesheet', type='text/css', href='vendors/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', type='text/css', href='vendors/@fortawesome/fontawesome-free/css/all.min.css')
+		link(rel='stylesheet', type='text/css', href='stylesheets/background.css')
+		link(rel='stylesheet', type='text/css', href='core/css/style.css')
+		link(rel='stylesheet', type='text/css', href='core/css/components.css')
+	body
+		#app
+			.main-wrapper.main-wrapper-1
+				.navbar-bg
+				nav.navbar.navbar-expand-lg.main-navbar
+					form.form-inline.mr-auto
+						ul.navbar-nav.mr-3
+							li
+								a.nav-link.nav-link-lg(href='#', data-toggle='sidebar')
+									i.fas.fa-bars
+					ul.navbar-nav.navbar-right
+						li.dropdown
+							a.nav-link.dropdown-toggle.nav-link-lg(href='#', data-toggle='dropdown', aria-expanded='false')
+								img.rounded-circle.mr-1(alt='image', src='core/img/avatar/avatar-1.png', style='width: 32px;')
+							.dropdown-menu.dropdown-menu-right
+								.dropdown-title.text-center= name
+								a.dropdown-item.has-icon(href='/user')
+									i.far.fa-user
+									| Profile
+								a.dropdown-item.has-icon(href='/library')
+									i.fas.fa-bolt
+									| My Library
+								a.dropdown-item.has-icon(href='/mixer')
+									i.fas.fa-sliders-h
+									| To Mixer
+								a.dropdown-item.has-icon(href='/admin')
+									i.fas.fa-user-shield
+									| To Admin Panel
+									.dropdown-divider
+								a.dropdown-item.has-icon.text-danger(href='/auth/logout')
+									i.fas.fa-sign-out-alt
+									|  Logout
+				.main-sidebar.sidebar-style-2
+					aside#sidebar-wrapper
+						.sidebar-brand
+							a(href='/') MIXSTREAMS
+						.sidebar-brand.sidebar-brand-sm
+							a(href='/') MS
+						ul.sidebar-menu
+							li.active
+								a.nav-link(href='/library')
+									i.fas.fa-music
+									span Music/Track Library
+							li
+								a.nav-link(href='/library/mine')
+									i.far.fa-grin
+									span My Musics/Tracks
+							li
+								a.nav-link(href='/library/purchased')
+									i.fas.fa-dollar-sign
+									span Purchased Musics/Tracks
+							li
+								a.nav-link(href='/library/upload')
+									i.fas.fa-cloud-upload-alt
+									span Upload Music/Track
+				.main-content
+					section.section
+						.section-header
+							h1 All Musics & Tracks
+						.section-body
+				footer.main-footer
+					.footer-left
+						| Copyright © Mixing Tracks 2019
+		script(src='vendors/jquery/dist/jquery.min.js')
+		script(src='vendors/bootstrap/dist/js/bootstrap.bundle.min.js')
+		script(src='vendors/jquery.nicescroll/dist/jquery.nicescroll.min.js')
+		script(src='vendors/moment/min/moment.min.js')
+		script(src='core/js/stisla.js')
+		script(src='core/js/scripts.js')
+		script.
+			$(document).ready(function () {
+
+			});
