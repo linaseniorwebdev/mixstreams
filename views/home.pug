@@ -93,9 +93,9 @@ html(lang="en")
 		if auth
 			.top-div.navbar-expand-lg
 				ul.nav.navbar-nav.float-right
-					li
-						a.nav-link.nav-link-lg(href='#')
-							| Song Library
+					//li
+					//	a.nav-link.nav-link-lg(href='#')
+					//		| Song Library
 					li.dropdown
 						a.nav-link.dropdown-toggle.nav-link-lg(href='#', data-toggle='dropdown', aria-expanded='false')
 							img.rounded-circle.mr-1(alt='image', src='core/img/avatar/avatar-1.png', style='width: 32px;')
@@ -108,10 +108,10 @@ html(lang="en")
 								i.fas.fa-bolt
 								| My Library
 							a.dropdown-item.has-icon(href='/mixer')
-								i.fas.fa-cog
+								i.fas.fa-sliders-h
 								| To Mixer
 							a.dropdown-item.has-icon(href='/admin')
-								i.fas.fa-cog
+								i.fas.fa-user-shield
 								| To Admin Panel
 								.dropdown-divider
 							a.dropdown-item.has-icon.text-danger(href='/auth/logout')

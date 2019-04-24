@@ -21,17 +21,26 @@ router.get('/', function(req, res, next) {
 router.get('/login', function(req, res, next) {
 	if (req.session.loggedin)
 		res.redirect('/');
-	console.log(req.cookies);
 	const remember = req.cookies.remember;
 	if (remember === undefined) {
-		res.render(
-			'auth/login',
-			{
-				message: req.flash('message'),
-				email: req.flash('email'),
-				password: req.flash('password')
-			}
-		);
+		const message = req.flash('message');
+		const email = req.flash('emails');
+		const password = req.flash('password');
+		console.log(message);
+		console.log(email);
+		console.log(password);
+		if (message.length < 1) {
+			res.render('auth/login');
+		} else {
+			res.render(
+				'auth/login',
+				{
+					message: message[0],
+					email: email[0],
+					password: password[0]
+				}
+			);
+		}
 	} else {
 		res.render(
 			'auth/login',
@@ -54,7 +63,7 @@ router.post('/login', function(req, res, next) {
 	const remember  = req.body.remember;
 	if (email && password) {
 		connection.query('SELECT * FROM `users` WHERE `email` = ?;', [email], function(error, rows, fields) {
-			req.flash('email', email);
+			req.flash('emails', email);
 			req.flash('password', password);
 			if (error) {
 				console.log(error);

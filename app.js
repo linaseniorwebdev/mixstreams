@@ -7,8 +7,10 @@ const path          = require('path');
 const session       = require('express-session');
 
 const authRouter    = require('./routes/auth');
+const adminRouter   = require('./routes/admin');
 const indexRouter   = require('./routes/index');
-const userRouter   = require('./routes/user');
+const mixerRouter   = require('./routes/mixer');
+const userRouter    = require('./routes/user');
 
 const app           = express();
 
@@ -30,6 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/admin', adminRouter);
+app.use('/mixer', mixerRouter);
 app.use('/user', userRouter);
 
 app.use(function(req, res, next) {
